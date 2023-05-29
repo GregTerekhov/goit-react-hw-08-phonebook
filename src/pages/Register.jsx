@@ -5,7 +5,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <h1>Registration</h1>
+        <title title>Registration</title>
       </Helmet>
       <RegisterForm />
     </div>
