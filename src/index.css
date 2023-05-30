@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
 
 body {
   margin: 0;
@@ -7,6 +7,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eaeaea;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(234, 234, 234, 0.9),
+      rgba(234, 234, 234, 0.8)
+    ),
+    url('../public/phone-background.jpg');
+  height: 100%;
+  color: #2a2a2a;
 }
 
 code {

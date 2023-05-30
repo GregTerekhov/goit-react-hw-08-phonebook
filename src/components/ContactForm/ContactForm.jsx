@@ -50,7 +50,7 @@ export const ContactForm = () => {
               <ErrorMessageForUser name="name" component="div" />
             </FormLabel>
             <FormLabel htmlFor="number">
-              Number
+              Phone number
               <FormInput
                 type="tel"
                 name="number"

@@ -1,4 +1,10 @@
 import { useAuth } from 'hooks/useAuth';
+import {
+  RegisterFormEl,
+  RegisterLabel,
+  RegisterInput,
+  RegisterButton,
+} from './RegisterForm.styled';
 
 export const RegisterForm = () => {
   const { register } = useAuth();
@@ -15,22 +21,22 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+    <>
+      <RegisterFormEl onSubmit={handleSubmit} autoComplete="off">
+        <RegisterLabel>
           Name
-          <input type="text" name="name" />
-        </label>
-        <label>
+          <RegisterInput type="text" name="name" />
+        </RegisterLabel>
+        <RegisterLabel>
           Email
-          <input type="email" name="email" />
-        </label>
-        <label>
+          <RegisterInput type="email" name="email" />
+        </RegisterLabel>
+        <RegisterLabel>
           Password
-          <input type="password" name="password" />
-        </label>
-        <button>Register</button>
-      </form>
-    </div>
+          <RegisterInput type="password" name="password" />
+        </RegisterLabel>
+        <RegisterButton>Register</RegisterButton>
+      </RegisterFormEl>
+    </>
   );
 };

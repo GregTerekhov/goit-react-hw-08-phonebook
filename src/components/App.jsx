@@ -3,13 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { PublicRoute } from 'components/PublicRoute';
-import { Layout } from './Layout';
-// import Loader from 'components/Loader';
+import { Layout } from './Layout/Layout';
 
-const Home = lazy(() => import('../pages/Home'));
-const Register = lazy(() => import('../pages/Register'));
-const Login = lazy(() => import('../pages/Login'));
-const Contacts = lazy(() => import('../pages/Contacts'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Register = lazy(() => import('../pages/Register/Register'));
+const Login = lazy(() => import('../pages/Login/Login'));
+const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
   const { isRefreshing, fetchCurrentUser } = useAuth();
@@ -18,16 +17,16 @@ export const App = () => {
   }, [fetchCurrentUser]);
 
   return (
-    <div>
+    <>
       {isRefreshing ? (
-        <h1>Show React Skeleton</h1>
+        <h1>Loading...</h1>
       ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<PublicRoute component={Home} />} />
+            <Route index element={<Home />} />
             <Route
               path="register"
-              element={<PublicRoute component={Register} />}
+              element={<PublicRoute component={Register} redirectTo="/login" />}
             />
             <Route
               path="login"
@@ -42,18 +41,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </div>
+    </>
   );
 };
-
-// return (
-//   <Suspense fallback={<p>Loading...</p>}>
-//     <Routes>
-//         <Route path="/" element={<Home />}>
-//           <Route path="register" element={<Register />} />
-//           <Route path="login" element={<Login />} />
-//           <Route path="contacts" element={<Contacts />} />
-//         </Route>
-//     </Routes>
-//   </Suspense>
-// );

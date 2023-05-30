@@ -1,71 +1,39 @@
 import styled from '@emotion/styled';
-import { Form, Field, ErrorMessage } from 'formik';
+import { Link } from 'react-router-dom';
 
-export const FormContainer = styled.div`
+export const HomeBox = styled.div`
   text-align: center;
 `;
 
-export const FormEl = styled(Form)`
+export const AppTitle = styled.h1`
+  margin: 0;
+  padding: 0;
+  margin-bottom: 80px;
+  font-size: 48px;
+`;
+
+export const AuthHomeList = styled.ul`
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
   gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
-export const FormLabel = styled.label`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 24px;
-  transition: color 250ms ease;
-
-  &:hover,
-  &:focus {
-    color: #3160cd;
-  }
-`;
-
-export const FormInput = styled(Field)`
-  width: 700px;
-  font-size: 24px;
-  border-radius: 20px;
-  border: 1px solid #959595;
-  padding: 16px;
-  outline: none;
-  transition: border-color 250ms ease, box-shadow 250ms ease;
-
-  &::placeholder {
-    color: #959595;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: #3160cd;
-    box-shadow: 0px 1px 7px 1px #4e4e4e;
-  }
-`;
-
-export const ErrorMessageForUser = styled(ErrorMessage)`
-  width: 700px;
-  text-align: justify;
-  font-size: 18px;
-`;
-
-export const FormButton = styled.button`
+export const AuthHomeLinks = styled(Link)`
   position: relative;
   display: inline-block;
+  width: 180px;
   color: #777674;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
+  text-decoration: none;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 16px 32px;
+  padding: 80px 60px;
   outline: none;
-  border: none;
-  cursor: pointer;
   border-radius: 3px / 100%;
   background-image: linear-gradient(
       45deg,

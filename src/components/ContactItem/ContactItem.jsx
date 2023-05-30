@@ -1,17 +1,71 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { SearchButton } from './ContactItem.styled';
 import { useContacts } from 'hooks/useContacts';
+import { DeleteButton } from './ContactItem.styled';
 
 export const ContactItem = ({ id, name, number }) => {
-  const { deleteContact } = useContacts();
-  return (
-    <>
-      {name}: {number}
-      <SearchButton type="button" onClick={() => deleteContact(id)}>
-        Delete contact
-      </SearchButton>
-    </>
-  );
+  const { deleteContact, patchContact, ContactName, ContactNumber } =
+    useContacts();
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState(name);
+  const [editedNumber, setEditedNumber] = useState(number);
+
+  const handleNameChange = e => {
+    setEditedName(e.target.value);
+  };
+
+  const handleNumberChange = e => {
+    setEditedNumber(e.target.value);
+  };
+
+  const handleSaveContact = () => {
+    const updatedContact = {
+      id,
+      name: editedName,
+      number: editedNumber,
+    };
+    patchContact(updatedContact)
+      .then(() => {
+        setIsEditing(false);
+      })
+      .catch(error => console.error('Error updating contact:', error.message));
+  };
+
+  const handleCancelEdit = () => {
+    setEditedName(ContactName);
+    setEditedNumber(ContactNumber);
+    setIsEditing(false);
+  };
+
+  const renderEditMode = () => {
+    return (
+      <>
+        <input type="text" value={editedName} onChange={handleNameChange} />
+        <input type="text" value={editedNumber} onChange={handleNumberChange} />
+        <button type="button" onClick={handleSaveContact}>
+          Save
+        </button>
+        <button type="button" onClick={handleCancelEdit}>
+          Cancel
+        </button>
+      </>
+    );
+  };
+
+  const renderViewMode = () => {
+    return (
+      <>
+        <div>
+          <span onClick={() => setIsEditing(true)}>{name}</span>
+          <span onClick={() => setIsEditing(true)}>{number}</span>
+        </div>
+        <DeleteButton type="button" onClick={() => deleteContact(id)}>
+          Delete contact
+        </DeleteButton>
+      </>
+    );
+  };
+  return <>{isEditing ? renderEditMode() : renderViewMode()}</>;
 };
 
 ContactItem.propTypes = {

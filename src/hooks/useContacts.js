@@ -22,6 +22,8 @@ export const useContacts = () => {
   );
   const addContact = newContact => dispatch(operations.addContact(newContact));
   const deleteContact = id => dispatch(operations.deleteContact(id));
+  const patchContact = updatedContact =>
+    dispatch(operations.patchContact(updatedContact));
 
   const setFilter = value => dispatch(actions.setFilter(value));
 
@@ -32,6 +34,7 @@ export const useContacts = () => {
     fetchContacts,
     addContact,
     deleteContact,
+    patchContact,
     setFilter,
   };
 };

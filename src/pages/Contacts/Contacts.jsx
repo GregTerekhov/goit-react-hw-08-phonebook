@@ -3,12 +3,7 @@ import { useContacts } from 'hooks/useContacts';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import {
-  Container,
-  Title,
-  SubTitle,
-  MessageEmptyList,
-} from './Contacts.styled';
+import { Title, SubTitle, MessageEmptyList } from './Contacts.styled';
 
 const Contacts = () => {
   const { contacts, fetchContacts } = useContacts();
@@ -18,7 +13,7 @@ const Contacts = () => {
   }, [fetchContacts]);
 
   return (
-    <Container>
+    <>
       <Title>Phonebook</Title>
       <ContactForm />
       <SubTitle>Contacts</SubTitle>
@@ -33,7 +28,7 @@ const Contacts = () => {
           contact
         </MessageEmptyList>
       )}
-    </Container>
+    </>
   );
 };
 

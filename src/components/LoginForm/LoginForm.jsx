@@ -1,4 +1,10 @@
 import { useAuth } from 'hooks/useAuth';
+import {
+  LogInForm,
+  LogInLabel,
+  LogInInput,
+  LogInButton,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const { logIn } = useAuth();
@@ -14,18 +20,18 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+    <>
+      <LogInForm onSubmit={handleSubmit} autoComplete="off">
+        <LogInLabel>
           Email
-          <input type="email" name="email" />
-        </label>
-        <label>
+          <LogInInput type="email" name="email" />
+        </LogInLabel>
+        <LogInLabel>
           Password
-          <input type="password" name="password" />
-        </label>
-        <button>Login</button>
-      </form>
-    </div>
+          <LogInInput type="password" name="password" />
+        </LogInLabel>
+        <LogInButton>Login</LogInButton>
+      </LogInForm>
+    </>
   );
 };

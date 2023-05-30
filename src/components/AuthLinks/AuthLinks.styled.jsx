@@ -1,68 +1,32 @@
 import styled from '@emotion/styled';
-import { Form, Field, ErrorMessage } from 'formik';
+import { NavLink } from 'react-router-dom';
 
-export const FormContainer = styled.div`
-  text-align: center;
-`;
-
-export const FormEl = styled(Form)`
+export const AuthLinksList = styled.ul`
+  list-style: none;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 32px;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
 `;
 
-export const FormLabel = styled.label`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 24px;
-  transition: color 250ms ease;
-
-  &:hover,
-  &:focus {
-    color: #3160cd;
+export const AuthLinksItem = styled.li`
+  & + & {
+    margin-left: 32px;
   }
 `;
 
-export const FormInput = styled(Field)`
-  width: 700px;
-  font-size: 24px;
-  border-radius: 20px;
-  border: 1px solid #959595;
-  padding: 16px;
-  outline: none;
-  transition: border-color 250ms ease, box-shadow 250ms ease;
-
-  &::placeholder {
-    color: #959595;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: #3160cd;
-    box-shadow: 0px 1px 7px 1px #4e4e4e;
-  }
-`;
-
-export const ErrorMessageForUser = styled(ErrorMessage)`
-  width: 700px;
-  text-align: justify;
-  font-size: 18px;
-`;
-
-export const FormButton = styled.button`
+export const AuthLink = styled(NavLink)`
   position: relative;
   display: inline-block;
+  width: 96px;
   color: #777674;
-  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
   font-weight: bold;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 16px 32px;
+  padding: 8px 16px;
   outline: none;
   border: none;
   cursor: pointer;
