@@ -1,21 +1,34 @@
 import styled from '@emotion/styled';
+import { HiOutlineUserCircle } from 'react-icons/hi';
 
 export const UserMenuBox = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+`;
+
+export const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 8px;
+`;
+
+export const UserIcon = styled(HiOutlineUserCircle)`
+  width: 36px;
+  height: 36px;
+  stroke: rgba(49, 96, 205, 0.7);
 `;
 
 export const ExitButton = styled.button`
   position: relative;
-  display: inline-block;
-  width: 96px;
   color: #777674;
   font-weight: bold;
+  font-size: 16px;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 8px 16px;
+  padding: 8px 24px;
   outline: none;
   border: none;
   cursor: pointer;

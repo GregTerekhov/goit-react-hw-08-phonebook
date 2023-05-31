@@ -7,6 +7,8 @@ import {
   DeleteButton,
   EditInput,
   EditActionBtn,
+  EditLabel,
+  EditForm,
 } from './ContactItem.styled';
 
 export const ContactItem = ({ id, name, number }) => {
@@ -44,20 +46,32 @@ export const ContactItem = ({ id, name, number }) => {
 
   const renderEditMode = () => {
     return (
-      <>
-        <EditInput type="text" value={editedName} onChange={handleNameChange} />
-        <EditInput
-          type="text"
-          value={editedNumber}
-          onChange={handleNumberChange}
-        />
+      <EditForm>
+        <EditLabel htmlFor="name">
+          Name:
+          <EditInput
+            type="text"
+            value={editedName}
+            name="name"
+            onChange={handleNameChange}
+          />
+        </EditLabel>
+        <EditLabel htmlFor="number">
+          Number:
+          <EditInput
+            type="text"
+            value={editedNumber}
+            name="number"
+            onChange={handleNumberChange}
+          />
+        </EditLabel>
         <EditActionBtn type="button" onClick={handleSaveContact}>
           Save
         </EditActionBtn>
         <EditActionBtn type="button" onClick={handleCancelEdit}>
           Cancel
         </EditActionBtn>
-      </>
+      </EditForm>
     );
   };
 

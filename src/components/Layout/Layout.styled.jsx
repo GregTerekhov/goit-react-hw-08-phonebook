@@ -6,8 +6,6 @@ export const Header = styled.header`
 `;
 
 export const Container = styled.div`
-  /* margin-left: auto;
-  margin-right: auto; */
   margin: auto;
   padding: 0 16px;
   width: 480px;
@@ -30,15 +28,11 @@ export const NavContainer = styled.nav`
 
 export const NavList = styled.ul`
   display: flex;
+  justify-content: space-between;
+  width: 288px;
   margin: 0;
   padding: 0;
   list-style: none;
-`;
-
-export const NavLinksItem = styled.li`
-  & + & {
-    margin-left: 32px;
-  }
 `;
 
 export const NavigationLink = styled(NavLink)`
@@ -109,6 +103,7 @@ export const NavigationLink = styled(NavLink)`
 
 export const Section = styled.section`
   display: flex;
+  padding: 24px 0;
   width: 100%;
   height: 100vh;
 `;

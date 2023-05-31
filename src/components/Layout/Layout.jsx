@@ -8,11 +8,11 @@ import {
   Header,
   NavContainer,
   NavList,
-  NavLinksItem,
   NavigationLink,
   Container,
   Section,
 } from './Layout.styled';
+import { Footer } from 'components/Footer/Footer';
 
 export const Layout = () => {
   const { isLoggedIn } = useAuth();
@@ -22,16 +22,16 @@ export const Layout = () => {
         <Container>
           <NavContainer>
             <NavList>
-              <NavLinksItem>
+              <li>
                 <NavigationLink to="/">Home</NavigationLink>
-              </NavLinksItem>
+              </li>
               {isLoggedIn && (
-                <NavLinksItem>
+                <li>
                   <NavigationLink to="/contacts">Contacts</NavigationLink>
-                </NavLinksItem>
+                </li>
               )}
             </NavList>
-            <div>{isLoggedIn ? <UserMenu /> : <AuthLinks />}</div>
+            {isLoggedIn ? <UserMenu /> : <AuthLinks />}
           </NavContainer>
         </Container>
       </Header>
@@ -45,7 +45,7 @@ export const Layout = () => {
           </Container>
         </Section>
       </main>
-      <footer>Footer</footer>
+      <Footer />
     </>
   );
 };

@@ -1,14 +1,15 @@
 import { useAuth } from 'hooks/useAuth';
-import { UserMenuBox, ExitButton } from './UserMenu.styled';
+import { UserMenuBox, UserIcon, ExitButton, UserInfo } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const { user, logOut } = useAuth();
-  //   const avatar = defaultAvatar;
 
   return (
     <UserMenuBox>
-      <img src="" alt="" width="32" />
-      <span>Welcome, {user.email}!</span>
+      <UserInfo>
+        <UserIcon />
+        <span>Welcome, {user.email}!</span>
+      </UserInfo>
       <ExitButton type="button" onClick={() => logOut()}>
         Exit
       </ExitButton>

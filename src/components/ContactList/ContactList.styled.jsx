@@ -12,7 +12,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   font-size: 24px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
 

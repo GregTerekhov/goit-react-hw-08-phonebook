@@ -1,23 +1,50 @@
 import styled from '@emotion/styled';
 
-export const ContactsWrapper = styled.div`
+export const EditForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 `;
 
-export const ContactData = styled.span`
-  display: inline-block;
+export const EditLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  transition: color 250ms ease;
+
+  &:hover,
+  &:focus {
+    color: #3160cd;
+  }
 `;
 
-export const DeleteButton = styled.button`
-  position: relative;
-  color: #777674;
-  display: block;
-  width: 180px;
+export const EditInput = styled.input`
+  width: 160px;
   font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #959595;
+  padding: 4px 8px;
+  outline: none;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #3160cd;
+    box-shadow: 0px 1px 7px 1px #4e4e4e;
+  }
+`;
+
+export const EditActionBtn = styled.button`
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  color: #777674;
   font-weight: bold;
+  font-size: 16px;
+
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
@@ -76,28 +103,23 @@ export const DeleteButton = styled.button`
   }
 `;
 
-export const EditInput = styled.input`
-  width: 180px;
-  font-size: 16px;
-  border-radius: 20px;
-  border: 1px solid #959595;
-  padding: 4px 8px;
-  outline: none;
-  transition: border-color 250ms ease, box-shadow 250ms ease;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: #3160cd;
-    box-shadow: 0px 1px 7px 1px #4e4e4e;
-  }
+export const ContactsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 `;
 
-export const EditActionBtn = styled.button`
-  position: relative;
+export const ContactData = styled.span`
   display: inline-block;
-  width: 96px;
+`;
+
+export const DeleteButton = styled.button`
+  position: relative;
   color: #777674;
+  display: block;
+  width: 180px;
+  font-size: 16px;
   font-weight: bold;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
