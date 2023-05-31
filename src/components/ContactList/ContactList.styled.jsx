@@ -14,6 +14,7 @@ export const ListItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 
   & + & {
     margin-top: 16px;

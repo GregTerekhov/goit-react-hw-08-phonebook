@@ -4,12 +4,18 @@ export const ContactsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+`;
+
+export const ContactData = styled.span`
+  display: inline-block;
 `;
 
 export const DeleteButton = styled.button`
   position: relative;
   color: #777674;
   display: block;
+  width: 180px;
   font-size: 16px;
   font-weight: bold;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useContacts } from 'hooks/useContacts';
-import { DeleteButton } from './ContactItem.styled';
+import {
+  ContactsWrapper,
+  ContactData,
+  DeleteButton,
+} from './ContactItem.styled';
 
 export const ContactItem = ({ id, name, number }) => {
   const { deleteContact, patchContact, ContactName, ContactNumber } =
@@ -55,10 +59,10 @@ export const ContactItem = ({ id, name, number }) => {
   const renderViewMode = () => {
     return (
       <>
-        <div>
-          <span onClick={() => setIsEditing(true)}>{name}</span>
-          <span onClick={() => setIsEditing(true)}>{number}</span>
-        </div>
+        <ContactsWrapper>
+          <ContactData onClick={() => setIsEditing(true)}>{name}</ContactData>
+          <ContactData onClick={() => setIsEditing(true)}>{number}</ContactData>
+        </ContactsWrapper>
         <DeleteButton type="button" onClick={() => deleteContact(id)}>
           Delete contact
         </DeleteButton>
