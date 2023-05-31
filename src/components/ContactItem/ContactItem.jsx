@@ -5,11 +5,12 @@ import {
   ContactsWrapper,
   ContactData,
   DeleteButton,
+  EditInput,
+  EditActionBtn,
 } from './ContactItem.styled';
 
 export const ContactItem = ({ id, name, number }) => {
-  const { deleteContact, patchContact, ContactName, ContactNumber } =
-    useContacts();
+  const { deleteContact, patchContact } = useContacts();
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(name);
   const [editedNumber, setEditedNumber] = useState(number);
@@ -36,22 +37,26 @@ export const ContactItem = ({ id, name, number }) => {
   };
 
   const handleCancelEdit = () => {
-    setEditedName(ContactName);
-    setEditedNumber(ContactNumber);
+    setEditedName(name);
+    setEditedNumber(number);
     setIsEditing(false);
   };
 
   const renderEditMode = () => {
     return (
       <>
-        <input type="text" value={editedName} onChange={handleNameChange} />
-        <input type="text" value={editedNumber} onChange={handleNumberChange} />
-        <button type="button" onClick={handleSaveContact}>
+        <EditInput type="text" value={editedName} onChange={handleNameChange} />
+        <EditInput
+          type="text"
+          value={editedNumber}
+          onChange={handleNumberChange}
+        />
+        <EditActionBtn type="button" onClick={handleSaveContact}>
           Save
-        </button>
-        <button type="button" onClick={handleCancelEdit}>
+        </EditActionBtn>
+        <EditActionBtn type="button" onClick={handleCancelEdit}>
           Cancel
-        </button>
+        </EditActionBtn>
       </>
     );
   };
@@ -60,8 +65,12 @@ export const ContactItem = ({ id, name, number }) => {
     return (
       <>
         <ContactsWrapper>
-          <ContactData onClick={() => setIsEditing(true)}>{name}</ContactData>
-          <ContactData onClick={() => setIsEditing(true)}>{number}</ContactData>
+          <ContactData onClick={() => setIsEditing(true)}>
+            {editedName}
+          </ContactData>
+          <ContactData onClick={() => setIsEditing(true)}>
+            {editedNumber}
+          </ContactData>
         </ContactsWrapper>
         <DeleteButton type="button" onClick={() => deleteContact(id)}>
           Delete contact
