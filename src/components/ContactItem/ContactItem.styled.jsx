@@ -44,7 +44,6 @@ export const EditActionBtn = styled.button`
   color: #777674;
   font-weight: bold;
   font-size: 16px;
-
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
