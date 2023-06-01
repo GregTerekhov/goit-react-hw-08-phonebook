@@ -9,6 +9,7 @@ export const Container = styled.div`
   margin: auto;
   padding: 0 16px;
   width: 480px;
+  /* width: 100%; */
 
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -27,25 +28,33 @@ export const NavContainer = styled.nav`
 
 export const NavList = styled.ul`
   display: flex;
-  justify-content: space-between;
-  width: 288px;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media screen and (max-width: 767px) {
+    gap: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    width: 288px;
+  }
 `;
 
 export const NavigationLink = styled(NavLink)`
   position: relative;
   display: inline-block;
-  width: 96px;
+  width: 56px;
   color: #777674;
   text-align: center;
   text-decoration: none;
+  font-size: 12px;
   font-weight: bold;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 8px 16px;
+  padding: 8px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -98,11 +107,15 @@ export const NavigationLink = styled(NavLink)`
     transition: 0.5s linear;
     background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 96px;
+    font-size: 16px;
+  }
 `;
 
 export const Section = styled.section`
   display: flex;
   padding: 24px 0;
-  width: 100%;
   height: 100vh;
 `;

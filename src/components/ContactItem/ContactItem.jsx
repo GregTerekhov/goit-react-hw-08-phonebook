@@ -5,33 +5,20 @@ import {
   ContactsWrapper,
   ContactData,
   DeleteButton,
-  EditInput,
-  EditActionBtn,
-  EditLabel,
-  EditForm,
 } from './ContactItem.styled';
+import { ContactEditForm } from 'components/ContactEditForm/ContactEditForm';
 
 export const ContactItem = ({ id, name, number }) => {
   const { deleteContact, patchContact } = useContacts();
   const [isEditing, setIsEditing] = useState(false);
-  const [editedName, setEditedName] = useState(name);
-  const [editedNumber, setEditedNumber] = useState(number);
 
-  const handleNameChange = e => {
-    setEditedName(e.target.value);
-  };
-
-  const handleNumberChange = e => {
-    setEditedNumber(e.target.value);
-  };
-
-  const handleSaveContact = () => {
+  const handleSaveContact = formData => {
     const updatedContact = {
       id,
-      name: editedName,
-      number: editedNumber,
+      ...formData,
     };
     patchContact(updatedContact)
+      .unwrap()
       .then(() => {
         setIsEditing(false);
       })
@@ -39,60 +26,32 @@ export const ContactItem = ({ id, name, number }) => {
   };
 
   const handleCancelEdit = () => {
-    setEditedName(name);
-    setEditedNumber(number);
     setIsEditing(false);
   };
 
-  const renderEditMode = () => {
-    return (
-      <EditForm>
-        <EditLabel htmlFor="name">
-          Name:
-          <EditInput
-            type="text"
-            value={editedName}
-            name="name"
-            onChange={handleNameChange}
-          />
-        </EditLabel>
-        <EditLabel htmlFor="number">
-          Number:
-          <EditInput
-            type="text"
-            value={editedNumber}
-            name="number"
-            onChange={handleNumberChange}
-          />
-        </EditLabel>
-        <EditActionBtn type="button" onClick={handleSaveContact}>
-          Save
-        </EditActionBtn>
-        <EditActionBtn type="button" onClick={handleCancelEdit}>
-          Cancel
-        </EditActionBtn>
-      </EditForm>
-    );
-  };
-
-  const renderViewMode = () => {
-    return (
-      <>
-        <ContactsWrapper>
-          <ContactData onClick={() => setIsEditing(true)}>
-            {editedName}
-          </ContactData>
-          <ContactData onClick={() => setIsEditing(true)}>
-            {editedNumber}
-          </ContactData>
-        </ContactsWrapper>
-        <DeleteButton type="button" onClick={() => deleteContact(id)}>
-          Delete contact
-        </DeleteButton>
-      </>
-    );
-  };
-  return <>{isEditing ? renderEditMode() : renderViewMode()}</>;
+  return (
+    <>
+      {isEditing ? (
+        <ContactEditForm
+          cancel={handleCancelEdit}
+          onSubmit={handleSaveContact}
+          data={{ name, number }}
+        />
+      ) : (
+        <>
+          <ContactsWrapper>
+            <ContactData onClick={() => setIsEditing(true)}>{name}</ContactData>
+            <ContactData onClick={() => setIsEditing(true)}>
+              {number}
+            </ContactData>
+          </ContactsWrapper>
+          <DeleteButton type="button" onClick={() => deleteContact(id)}>
+            Delete contact
+          </DeleteButton>
+        </>
+      )}
+    </>
+  );
 };
 
 ContactItem.propTypes = {

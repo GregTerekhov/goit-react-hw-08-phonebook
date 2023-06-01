@@ -12,7 +12,7 @@ import {
   Container,
   Section,
 } from './Layout.styled';
-import { Footer } from 'components/Footer/Footer';
+// import { Footer } from 'components/Footer/Footer';
 
 export const Layout = () => {
   const { isLoggedIn } = useAuth();
@@ -45,7 +45,7 @@ export const Layout = () => {
           </Container>
         </Section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -9,7 +9,11 @@ export const AppTitle = styled.h1`
   margin: 0;
   padding: 0;
   margin-bottom: 80px;
-  font-size: 48px;
+  font-size: 32px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
 `;
 
 export const AuthHomeList = styled.ul`
@@ -24,15 +28,15 @@ export const AuthHomeList = styled.ul`
 export const AuthHomeLinks = styled(Link)`
   position: relative;
   display: inline-block;
-  width: 180px;
+  width: 112px;
   color: #777674;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 80px 60px;
+  padding: 40px;
   outline: none;
   border-radius: 3px / 100%;
   background-image: linear-gradient(
@@ -82,5 +86,11 @@ export const AuthHomeLinks = styled(Link)`
   &:focus {
     transition: 0.5s linear;
     background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    font-size: 32px;
+    padding: 80px 60px;
   }
 `;

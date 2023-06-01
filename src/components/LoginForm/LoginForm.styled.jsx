@@ -12,18 +12,22 @@ export const LogInLabel = styled.label`
   align-items: start;
   flex-direction: column;
   gap: 8px;
-  font-size: 24px;
+  font-size: 16px;
   transition: color 250ms ease;
 
   &:hover,
   &:focus {
     color: #3160cd;
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const LogInInput = styled.input`
-  width: 700px;
-  font-size: 24px;
+  width: 400px;
+  font-size: 16px;
   border-radius: 20px;
   border: 1px solid #959595;
   padding: 16px;
@@ -40,17 +44,15 @@ export const LogInInput = styled.input`
     border-color: #3160cd;
     box-shadow: 0px 1px 7px 1px #4e4e4e;
   }
-`;
 
-// export const ErrorMessageForUser = styled(ErrorMessage)`
-//   width: 700px;
-//   text-align: justify;
-//   font-size: 18px;
-// `;
+  @media screen and (min-width: 768px) {
+    width: 700px;
+    font-size: 24px;
+  }
+`;
 
 export const LogInButton = styled.button`
   position: relative;
-  display: inline-block;
   color: #777674;
   font-size: 24px;
   font-weight: bold;

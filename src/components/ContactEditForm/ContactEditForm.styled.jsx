@@ -1,44 +1,65 @@
 import styled from '@emotion/styled';
-import { HiOutlineUserCircle } from 'react-icons/hi';
 
-export const UserMenuBox = styled.div`
+export const EditForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 `;
 
-export const UserInfo = styled.div`
+export const EditLabel = styled.label`
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-right: 8px;
+
+  flex-direction: column;
+  gap: 2px;
   font-size: 12px;
+  transition: color 250ms linear;
+
+  &:hover,
+  &:focus {
+    color: #3160cd;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
 `;
 
-export const UserIcon = styled(HiOutlineUserCircle)`
-  width: 24px;
-  height: 24px;
-  stroke: rgba(49, 96, 205, 0.7);
+export const EditInput = styled.input`
+  width: 80px;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #959595;
+  padding: 4px 8px;
+  outline: none;
+  transition: border-color 250ms linear, box-shadow 250ms linear;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #3160cd;
+    box-shadow: 0px 1px 7px 1px #4e4e4e;
+  }
 
   @media screen and (min-width: 768px) {
-    width: 36px;
-    height: 36px;
+    font-size: 16px;
+    width: 160px;
   }
 `;
 
-export const ExitButton = styled.button`
+export const EditActionBtn = styled.button`
   position: relative;
   color: #777674;
+  width: 80px;
   font-weight: bold;
   font-size: 12px;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 1px,
     rgba(100, 100, 100, 0.3) 3px 7px 3px;
   user-select: none;
-  padding: 8px 16px;
+  padding: 8px 0;
   outline: none;
   border: none;
   cursor: pointer;
@@ -86,6 +107,10 @@ export const ExitButton = styled.button`
   box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
   backdrop-filter: blur(6px);
 
+  &:disabled {
+    pointer-events: none;
+  }
+
   &:hover,
   &:focus {
     transition: 0.5s linear;
@@ -94,6 +119,5 @@ export const ExitButton = styled.button`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    padding: 8px 24px;
   }
 `;

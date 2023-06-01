@@ -1,14 +1,14 @@
-import { AuthLinksList, AuthLinksItem, AuthLink } from './AuthLinks.styled';
+import { AuthLinksList, AuthLink } from './AuthLinks.styled';
 
 export const AuthLinks = () => {
   return (
     <AuthLinksList>
-      <AuthLinksItem>
+      <li>
         <AuthLink to="/login">Login</AuthLink>
-      </AuthLinksItem>
-      <AuthLinksItem>
+      </li>
+      <li>
         <AuthLink to="/register">Register</AuthLink>
-      </AuthLinksItem>
+      </li>
     </AuthLinksList>
   );
 };
